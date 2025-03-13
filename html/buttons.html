@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="images/main.webp">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Buttons - Codinghole</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #121212;
+            color: #00aaff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: rgba(20, 20, 50, 0.9);
+            box-shadow: 0 2px 5px rgba(0, 170, 255, 0.3);
+            z-index: 1000;
+        }
+        .navbar h1 {
+            color: #00aaff;
+            font-size: 1.8rem;
+        }
+        section {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 100px 20px 20px;
+            scroll-margin-top: 80px;
+        }
+        h1 {
+            font-size: 3rem;
+            color: #00aaff;
+            margin-bottom: 10px;
+        }
+        p, ul {
+            font-size: 1.5rem;
+            max-width: 800px;
+            line-height: 1.6;
+            opacity: 0.8;
+            word-wrap: break-word;
+        }
+        .code-box {
+            background: #1a1a1a;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            text-align: left;
+            max-width: 600px;
+            word-wrap: break-word;
+            overflow-x: auto;
+        }
+        .btn {
+            margin-top: 20px;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #121212;
+            background: #00aaff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: #0088cc;
+        }
+        .footer {
+            padding: 20px;
+            font-size: 1rem;
+            opacity: 0.6;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        .popup-content {
+            background: #121212;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+            max-height: 80%;
+            overflow-y: auto;
+        }
+        .popup button {
+            margin-top: 20px;
+            background: #00aaff;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>Codinghole</h1>
+    </div>
+
+    <!-- Section: Introduction to Buttons -->
+    <section id="intro">
+        <h1>HTML Buttons</h1>
+        <p>Buttons in HTML allow users to interact with your webpage by performing actions.</p>
+        <p>A simple button is created using the <code>&lt;button&gt;</code> tag.</p>
+        <div class="code-box">
+            <code>&lt;button&gt;Click Me&lt;/button&gt;</code>
+        </div>
+        <button class="btn" onclick="location.href='#types'">Learn Button Types</button>
+    </section>
+
+    <!-- Section: Button Types -->
+    <section id="types">
+        <h1>Types of Buttons</h1>
+        <p>HTML provides different types of buttons:</p>
+        <ul>
+            <li><strong>Submit Button:</strong> Used in forms to submit data.</li>
+            <div class="code-box">
+                <code>&lt;button type="submit"&gt;Submit&lt;/button&gt;</code>
+            </div>
+            <li><strong>Reset Button:</strong> Resets form inputs.</li>
+            <div class="code-box">
+                <code>&lt;button type="reset"&gt;Reset&lt;/button&gt;</code>
+            </div>
+            <li><strong>Button Type:</strong> Used for JavaScript interactions.</li>
+            <div class="code-box">
+                <code>&lt;button type="button"&gt;Click Me&lt;/button&gt;</code>
+            </div>
+        </ul>
+        <button class="btn" onclick="location.href='#quiz'">Take the Quiz</button>
+    </section>
+
+    <!-- Quiz Section -->
+    <section id="quiz">
+        <h1>Test Your Knowledge</h1>
+        <button class="btn" onclick="openQuiz()">Start Quiz</button>
+    </section>
+
+    <!-- Quiz Popup -->
+    <div class="popup" id="quizPopup">
+        <div class="popup-content">
+            <h2>HTML Buttons Quiz</h2>
+            <form id="quizForm">
+                <p><strong>Question 1:</strong> Which tag is used to create a button?</p>
+                <input type="radio" name="q1" value="button"> &lt;button&gt; <br>
+                <input type="radio" name="q1" value="btn"> &lt;btn&gt; <br>
+
+                <p><strong>Question 2:</strong> Which button type submits a form?</p>
+                <input type="radio" name="q2" value="submit"> submit <br>
+                <input type="radio" name="q2" value="button"> button <br>
+
+                <button type="button" class="btn" onclick="submitQuiz()">Submit</button>
+            </form>
+            <div id="quizResult"></div>
+            <button class="btn" onclick="location.href='lists.html'">Next Lesson: Lists</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>Copyright © 2025</p>
+        <p>📧 <a href="mailto:ivaansri.contact@gmail.com" style="color: #ffcc00;">ivaansri.contact@gmail.com</a></p>
+        <p>▶️ <a href="https://youtube.com/@leaperstuff" target="_blank" style="color: #ffcc00;">@leaperstuff</a></p>
+    </div>
+
+    <script>
+        function openQuiz() {
+            document.getElementById('quizPopup').style.display = 'flex';
+        }
+
+        function submitQuiz() {
+            const quizForm = document.getElementById('quizForm');
+            let score = 0;
+            const answers = { q1: "button", q2: "submit" };
+
+            for (let q in answers) {
+                const userAnswer = quizForm.querySelector(`input[name="${q}"]:checked`);
+                if (userAnswer && userAnswer.value === answers[q]) {
+                    score++;
+                }
+            }
+
+            document.getElementById('quizResult').innerHTML = `<p>You scored ${score} out of 2.</p>`;
+        }
+    </script>
+</body>
+</html>
