@@ -4,7 +4,7 @@
     <link rel="icon" type="image/png" href="images/main.webp">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text Elements - Codinghole</title>
+    <title>HTML Basics - Codinghole</title>
     <style>
         * {
             margin: 0;
@@ -18,7 +18,6 @@
             font-family: Arial, sans-serif;
             text-align: center;
         }
-        /* Navbar */
         .navbar {
             position: fixed;
             top: 0;
@@ -77,7 +76,6 @@
             font-size: 1rem;
             opacity: 0.6;
         }
-        /* Popup */
         .popup {
             display: none;
             position: fixed;
@@ -109,30 +107,30 @@
     <div class="navbar">
         <h1>Codinghole</h1>
     </div>
-    
-    <!-- Section: What is Text Elements -->
-    <section id="what">
-        <h1>What are Text Elements?</h1>
-        <p>
-            In HTML, there are various types of text elements that help structure content. Common text elements include:
-        </p>
-        <ul>
-            <li><strong>&lt;h1&gt;</strong>: The main heading of a page.</li>
-            <li><strong>&lt;p&gt;</strong>: A paragraph of text.</li>
-            <li><strong>&lt;span&gt;</strong>: A section of text within another element.</li>
-            <li><strong>&lt;strong&gt;</strong>: Text that is strongly emphasized, often displayed in bold.</li>
-            <li><strong>&lt;em&gt;</strong>: Text that is emphasized, often displayed in italics.</li>
-            <li><strong>&lt;ul&gt;</strong>: An unordered list.</li>
-            <li><strong>&lt;ol&gt;</strong>: An ordered list.</li>
-        </ul>
-        <button class="btn" onclick="location.href='#check'">Check out more</button>
+
+    <!-- Section: Introduction to HTML -->
+    <section id="intro">
+        <h1>Introduction to HTML</h1>
+        <p>HTML stands for <strong>HyperText Markup Language</strong>. It is used to structure web pages.</p>
+        <p>HTML consists of elements represented by tags such as <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, and <code>&lt;body&gt;</code>.</p>
+        <button class="btn" onclick="location.href='#tags'">Learn About Tags</button>
     </section>
 
-    <!-- Section: Select View -->
-    <section id="check">
-        <h1>Select your next action</h1>
-        <button class="btn" onclick="location.href='buttons.html'">Next Course</button>
-        <button class="btn" onclick="openQuiz()">Quiz</button>
+    <!-- Section: HTML Tags and Closing -->
+    <section id="tags">
+        <h1>HTML Tags and Closing</h1>
+        <p>HTML tags define elements. Some tags require closing, while others are self-closing.</p>
+        <ul>
+            <li><strong>Opening and Closing:</strong> <code>&lt;p&gt;Hello&lt;/p&gt;</code></li>
+            <li><strong>Self-Closing:</strong> <code>&lt;br&gt;</code>, <code>&lt;img src="image.jpg" /&gt;</code></li>
+        </ul>
+        <button class="btn" onclick="location.href='#quiz'">Take the Quiz</button>
+    </section>
+
+    <!-- Quiz Section -->
+    <section id="quiz">
+        <h1>Test Your HTML Knowledge</h1>
+        <button class="btn" onclick="openQuiz()">Start Quiz</button>
     </section>
 
     <!-- Footer -->
@@ -146,30 +144,26 @@
     <!-- Quiz Popup -->
     <div class="popup" id="quizPopup">
         <div class="popup-content">
-            <h2>Quiz</h2>
+            <h2>HTML Basics Quiz</h2>
             <form id="quizForm">
-                <p><strong>Question 1:</strong> What is the HTML tag for a paragraph?</p>
-                <input type="radio" name="q1" value="p"> &lt;p&gt; <br>
-                <input type="radio" name="q1" value="div"> &lt;div&gt; <br>
+                <p><strong>Question 1:</strong> What does HTML stand for?</p>
+                <input type="radio" name="q1" value="HyperText Markup Language"> HyperText Markup Language <br>
+                <input type="radio" name="q1" value="Hyper Transfer Markup Language"> Hyper Transfer Markup Language <br>
 
-                <p><strong>Question 2:</strong> What is the HTML tag for an ordered list?</p>
-                <input type="radio" name="q2" value="ul"> &lt;ul&gt; <br>
-                <input type="radio" name="q2" value="ol"> &lt;ol&gt; <br>
+                <p><strong>Question 2:</strong> Which tag represents the root of an HTML document?</p>
+                <input type="radio" name="q2" value="body"> &lt;body&gt; <br>
+                <input type="radio" name="q2" value="html"> &lt;html&gt; <br>
 
-                <p><strong>Question 3:</strong> Which HTML tag is used for text emphasis?</p>
-                <input type="radio" name="q3" value="strong"> &lt;strong&gt; <br>
-                <input type="radio" name="q3" value="em"> &lt;em&gt; <br>
+                <p><strong>Question 3:</strong> Which tag is self-closing?</p>
+                <input type="radio" name="q3" value="p"> &lt;p&gt; <br>
+                <input type="radio" name="q3" value="br"> &lt;br&gt; <br>
 
-                <p><strong>Question 4:</strong> Which tag is used to create a link?</p>
-                <input type="radio" name="q4" value="a"> &lt;a&gt; <br>
-                <input type="radio" name="q4" value="link"> &lt;link&gt; <br>
-
-                <p><strong>Question 5:</strong> What is the HTML tag for the main heading?</p>
-                <input type="radio" name="q5" value="h1"> &lt;h1&gt; <br>
-                <input type="radio" name="q5" value="h2"> &lt;h2&gt; <br>
+                <p><strong>Question 4:</strong> What is the correct syntax for a closing tag?</p>
+                <input type="radio" name="q4" value="</p>"> &lt;/p&gt; <br>
+                <input type="radio" name="q4" value="<p/>"> &lt;p/&gt; <br>
 
                 <button type="button" class="btn" onclick="submitQuiz()">Submit</button>
-                <button type="button" class="btn" onclick="retryQuiz()">Retry Quiz</button>
+                <button type="button" class="btn" onclick="retryQuiz()">Retry</button>
             </form>
             <div id="quizResult"></div>
         </div>
@@ -184,11 +178,10 @@
             const quizForm = document.getElementById('quizForm');
             let score = 0;
             const answers = {
-                q1: 'p',
-                q2: 'ol',
-                q3: 'em',
-                q4: 'a',
-                q5: 'h1'
+                q1: "HyperText Markup Language",
+                q2: "html",
+                q3: "br",
+                q4: "</p>"
             };
 
             for (let q in answers) {
@@ -204,7 +197,7 @@
 
         function displayResult(score) {
             const resultDiv = document.getElementById('quizResult');
-            resultDiv.innerHTML = `<p>You scored ${score} out of 5.</p>`;
+            resultDiv.innerHTML = `<p>You scored ${score} out of 4.</p>`;
             resultDiv.style.display = 'block';
         }
 
