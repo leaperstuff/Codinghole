@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="images/main.webp">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Elements - Codinghole</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #121212;
+            color: #00aaff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: rgba(20, 20, 50, 0.9);
+            box-shadow: 0 2px 5px rgba(0, 170, 255, 0.3);
+            z-index: 1000;
+        }
+        .navbar h1 {
+            color: #00aaff;
+            font-size: 1.8rem;
+        }
+        section {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 100px 20px 20px;
+            scroll-margin-top: 80px;
+        }
+        h1 {
+            font-size: 3rem;
+            color: #00aaff;
+            margin-bottom: 10px;
+        }
+        p, ul {
+            font-size: 1.5rem;
+            max-width: 800px;
+            line-height: 1.6;
+            opacity: 0.8;
+            word-wrap: break-word;
+        }
+        .btn {
+            margin-top: 20px;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #121212;
+            background: #00aaff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: #0088cc;
+        }
+        .footer {
+            padding: 20px;
+            font-size: 1rem;
+            opacity: 0.6;
+        }
+        /* Popup */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        .popup-content {
+            background: #121212;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+            max-height: 80%;
+            overflow-y: auto;
+        }
+        .popup button {
+            margin-top: 20px;
+            background: #00aaff;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>Codinghole</h1>
+    </div>
+    
+    <!-- Section: What is Text Elements -->
+    <section id="what">
+        <h1>What are Text Elements?</h1>
+        <p>
+            In HTML, there are various types of text elements that help structure content. Common text elements include:
+        </p>
+        <ul>
+            <li><strong>&lt;h1&gt;</strong>: The main heading of a page.</li>
+            <li><strong>&lt;p&gt;</strong>: A paragraph of text.</li>
+            <li><strong>&lt;span&gt;</strong>: A section of text within another element.</li>
+            <li><strong>&lt;strong&gt;</strong>: Text that is strongly emphasized, often displayed in bold.</li>
+            <li><strong>&lt;em&gt;</strong>: Text that is emphasized, often displayed in italics.</li>
+            <li><strong>&lt;ul&gt;</strong>: An unordered list.</li>
+            <li><strong>&lt;ol&gt;</strong>: An ordered list.</li>
+        </ul>
+        <button class="btn" onclick="location.href='#check'">Check out more</button>
+    </section>
+
+    <!-- Section: Select View -->
+    <section id="check">
+        <h1>Select your next action</h1>
+        <button class="btn" onclick="location.href='buttons.html'">Next Course</button>
+        <button class="btn" onclick="openQuiz()">Quiz</button>
+    </section>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>Copyright © 2025</p>
+        <p>Made in India</p>
+        <p>📧 <a href="mailto:ivaansri.contact@gmail.com" style="color: #ffcc00;">ivaansri.contact@gmail.com</a></p>
+        <p>▶️ <a href="https://youtube.com/@leaperstuff" target="_blank" style="color: #ffcc00;">@leaperstuff</a></p>
+    </div>
+
+    <!-- Quiz Popup -->
+    <div class="popup" id="quizPopup">
+        <div class="popup-content">
+            <h2>Quiz</h2>
+            <form id="quizForm">
+                <p><strong>Question 1:</strong> What is the HTML tag for a paragraph?</p>
+                <input type="radio" name="q1" value="p"> &lt;p&gt; <br>
+                <input type="radio" name="q1" value="div"> &lt;div&gt; <br>
+
+                <p><strong>Question 2:</strong> What is the HTML tag for an ordered list?</p>
+                <input type="radio" name="q2" value="ul"> &lt;ul&gt; <br>
+                <input type="radio" name="q2" value="ol"> &lt;ol&gt; <br>
+
+                <p><strong>Question 3:</strong> Which HTML tag is used for text emphasis?</p>
+                <input type="radio" name="q3" value="strong"> &lt;strong&gt; <br>
+                <input type="radio" name="q3" value="em"> &lt;em&gt; <br>
+
+                <p><strong>Question 4:</strong> Which tag is used to create a link?</p>
+                <input type="radio" name="q4" value="a"> &lt;a&gt; <br>
+                <input type="radio" name="q4" value="link"> &lt;link&gt; <br>
+
+                <p><strong>Question 5:</strong> What is the HTML tag for the main heading?</p>
+                <input type="radio" name="q5" value="h1"> &lt;h1&gt; <br>
+                <input type="radio" name="q5" value="h2"> &lt;h2&gt; <br>
+
+                <button type="button" class="btn" onclick="submitQuiz()">Submit</button>
+                <button type="button" class="btn" onclick="retryQuiz()">Retry Quiz</button>
+            </form>
+            <div id="quizResult"></div>
+        </div>
+    </div>
+
+    <script>
+        function openQuiz() {
+            document.getElementById('quizPopup').style.display = 'flex';
+        }
+
+        function submitQuiz() {
+            const quizForm = document.getElementById('quizForm');
+            let score = 0;
+            const answers = {
+                q1: 'p',
+                q2: 'ol',
+                q3: 'em',
+                q4: 'a',
+                q5: 'h1'
+            };
+
+            for (let q in answers) {
+                const userAnswer = quizForm.querySelector(`input[name="${q}"]:checked`);
+                if (userAnswer && userAnswer.value === answers[q]) {
+                    score++;
+                }
+            }
+
+            localStorage.setItem('quizScore', score);
+            displayResult(score);
+        }
+
+        function displayResult(score) {
+            const resultDiv = document.getElementById('quizResult');
+            resultDiv.innerHTML = `<p>You scored ${score} out of 5.</p>`;
+            resultDiv.style.display = 'block';
+        }
+
+        function retryQuiz() {
+            document.getElementById('quizForm').reset();
+            document.getElementById('quizResult').innerHTML = '';
+        }
+
+        window.onload = function() {
+            const savedScore = localStorage.getItem('quizScore');
+            if (savedScore) {
+                displayResult(savedScore);
+            }
+        };
+    </script>
+</body>
+  </html>
