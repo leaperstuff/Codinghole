@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="images/main.webp">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Text Elements - Codinghole</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #121212;
+            color: #00aaff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: rgba(20, 20, 50, 0.9);
+            box-shadow: 0 2px 5px rgba(0, 170, 255, 0.3);
+            z-index: 1000;
+        }
+        .navbar h1 {
+            color: #00aaff;
+            font-size: 1.8rem;
+        }
+        section {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 100px 20px 20px;
+            scroll-margin-top: 80px;
+        }
+        h1, h2, h3 {
+            color: #00aaff;
+        }
+        h1 { font-size: 3rem; }
+        h2 { font-size: 2.5rem; }
+        h3 { font-size: 2rem; }
+        p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            line-height: 1.6;
+            opacity: 0.8;
+            word-wrap: break-word;
+        }
+        .btn {
+            margin-top: 20px;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #121212;
+            background: #00aaff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: #0088cc;
+        }
+        .footer {
+            padding: 20px;
+            font-size: 1rem;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <h1>Codinghole</h1>
+    </div>
+
+    <!-- Section: Introduction -->
+    <section id="intro">
+        <h1>HTML Text Elements</h1>
+        <p>HTML provides various text elements for structuring content.</p>
+        <button class="btn" onclick="location.href='#elements'">See Elements</button>
+    </section>
+
+    <!-- Section: Text Elements -->
+    <section id="elements">
+        <h2>Common HTML Text Elements</h2>
+        <h3>1. Paragraph & Headings</h3>
+        <p>This is a paragraph. It uses the <code>&lt;p&gt;</code> tag.</p>
+        <h1>This is H1</h1>
+        <h2>This is H2</h2>
+        <h3>This is H3</h3>
+
+        <h3>2. Bold & Italics</h3>
+        <p><strong>Bold Text:</strong> This text is bold using <code>&lt;strong&gt;</code>.</p>
+        <p><em>Italic Text:</em> This text is italic using <code>&lt;em&gt;</code>.</p>
+
+        <h3>3. Small Text</h3>
+        <p><small>This is small text using <code>&lt;small&gt;</code>.</small></p>
+
+        <button class="btn" onclick="location.href='#quiz'">Take the Quiz</button>
+    </section>
+
+    <!-- Quiz Section -->
+    <section id="quiz">
+        <h1>Test Your Knowledge</h1>
+        <button class="btn" onclick="openQuiz()">Start Quiz</button><button class="btn" onclick="window.location.href='buttons.html'">Next lesson</button>
+    </section>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>Copyright © 2025</p>
+        <p>Made in India</p>
+        <p>📧 <a href="mailto:ivaansri.contact@gmail.com" style="color: #ffcc00;">ivaansri.contact@gmail.com</a></p>
+        <p>▶️ <a href="https://youtube.com/@leaperstuff" target="_blank" style="color: #ffcc00;">@leaperstuff</a></p>
+    </div>
+
+    <!-- Quiz Popup -->
+    <div class="popup" id="quizPopup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); justify-content:center; align-items:center; color:white;">
+        <div class="popup-content" style="background:#121212; padding:20px; border-radius:10px; width:80%; max-width:600px; max-height:80%; overflow-y:auto;">
+            <h2>HTML Text Quiz</h2>
+            <form id="quizForm">
+                <p><strong>Question 1:</strong> Which tag is used for a paragraph?</p>
+                <input type="radio" name="q1" value="p"> &lt;p&gt; <br>
+                <input type="radio" name="q1" value="h1"> &lt;h1&gt; <br>
+
+                <p><strong>Question 2:</strong> What does <code>&lt;strong&gt;</code> do?</p>
+                <input type="radio" name="q2" value="bold"> Makes text bold <br>
+                <input type="radio" name="q2" value="italic"> Makes text italic <br>
+
+                <p><strong>Question 3:</strong> What is the smallest heading?</p>
+                <input type="radio" name="q3" value="h6"> &lt;h6&gt; <br>
+                <input type="radio" name="q3" value="h1"> &lt;h1&gt; <br>
+
+                <p><strong>Question 4:</strong> What does <code>&lt;small&gt;</code> do?</p>
+                <input type="radio" name="q4" value="makes smaller"> Makes text smaller <br>
+                <input type="radio" name="q4" value="makes bigger"> Makes text bigger <br>
+
+                <button type="button" class="btn" onclick="submitQuiz()">Submit</button>
+                <button type="button" class="btn" onclick="retryQuiz()">Retry</button><button class="btn" onclick="window.location.href='buttons.html'">Next lesson</button>.
+            </form>
+            <div id="quizResult"></div>
+        </div>
+    </div>
+
+    <script>
+        function openQuiz() {
+            document.getElementById('quizPopup').style.display = 'flex';
+        }
+
+        function submitQuiz() {
+            const quizForm = document.getElementById('quizForm');
+            let score = 0;
+            const answers = { q1: "p", q2: "bold", q3: "h6", q4: "makes smaller" };
+
+            for (let q in answers) {
+                const userAnswer = quizForm.querySelector(`input[name="${q}"]:checked`);
+                if (userAnswer && userAnswer.value === answers[q]) {
+                    score++;
+                }
+            }
+
+            document.getElementById('quizResult').innerHTML = `<p>You scored ${score} out of 4.</p>`;
+        }
+
+        function retryQuiz() {
+            document.getElementById('quizForm').reset();
+            document.getElementById('quizResult').innerHTML = '';
+        }
+    </script>
+
+</body>
+</html>
